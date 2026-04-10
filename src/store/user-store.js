@@ -1,16 +1,19 @@
+import { loadUsersByPage } from "../use-cases/load-users-by-page";
+
+
 const state = {
     currentPage: 0,
     users : []
 }
 
-const loadNextPage = async() => {   
+export const loadNextPage = async() => {   
+   await loadUsersByPage(state.currentPage + 1);
+}
+
+export const loadPreviousPage = async() => {
     throw new Error('Not implemented yet')
 }
 
- const loadPreviousPage = async() => {
-    throw new Error('Not implemented yet')
-}
-//TODO: implementar
 const onUserChanged = (user) => {
     throw new Error('Not implemented yet')
 }
