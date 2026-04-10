@@ -13,6 +13,8 @@ const loadNextPage = async() => {
    state.currentPage += 1;
    state.users = users;
 
+   console.log(state)
+
 }
 
 const loadPreviousPage = async() => {
@@ -35,6 +37,15 @@ export default{
     onUserChanged,
     reloadPage,
 
+    /**
+     * 
+     * @returns {User[]}
+     */
     getUsers: () => [...state.users],
+
+    /**
+     * 
+     * @returns {Number}
+     */
     getCurrentPage: () => state.currentPage
 }

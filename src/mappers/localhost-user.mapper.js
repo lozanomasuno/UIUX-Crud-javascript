@@ -13,7 +13,7 @@ export const localHostToUserModel  = (localhostUser) =>{
         gender,
         id,
         isActive,
-        last_Name 
+        last_name,
     } = localhostUser
 
     return new User(
@@ -24,7 +24,7 @@ export const localHostToUserModel  = (localhostUser) =>{
             gender,
             id,
             isActive,
-            lastName: last_Name 
+            lastName: last_name,
         }
     )
 }
