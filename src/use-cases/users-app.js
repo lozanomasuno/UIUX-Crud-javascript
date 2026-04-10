@@ -1,4 +1,4 @@
-import userStore from "../store/user-store"
+import usersStore from '../store/users-store'
 
 /**
  * @param {HTMLDivElement} element
@@ -7,7 +7,8 @@ import userStore from "../store/user-store"
 export const UsersApp = async(element) => {
 
     element.innerHTML = 'Loading...'
-    await userStore.loadNextPage()
+    await usersStore.loadNextPage()
 
+    console.log( usersStore.getUsers() )
 
 }

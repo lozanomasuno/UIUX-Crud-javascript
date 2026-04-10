@@ -1,7 +1,10 @@
+import {User} from '../models/user';
+import { localHostToUserModel } from '../mappers/localhost-user.mapper';
+
 /**
  * 
  * @param {Number} page 
- * @returns 
+ * @returns { Promise<User[]> }
  */
 export const loadUsersByPage = async(page = 1) => {
     const baseUrl = (import.meta.env.VITE_BASE_URL || 'http://localhost:3001').replace(/\/$/, '')
@@ -19,8 +22,12 @@ export const loadUsersByPage = async(page = 1) => {
     }
 
     const data = await response.json()
-    
-    console.log(data)
+    const list = Array.isArray(data) ? data : (data.data ?? [])
 
-    return Array.isArray(data) ? data : data.data
+    const users  = list.map( userLike => localHostToUserModel(userLike))
+
+    console.log ( users)
+
+
+    return users;
 }

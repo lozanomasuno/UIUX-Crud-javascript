@@ -6,15 +6,20 @@ const state = {
     users : []
 }
 
-export const loadNextPage = async() => {   
-   await loadUsersByPage(state.currentPage + 1);
+const loadNextPage = async() => {   
+   const users = await loadUsersByPage( state.currentPage + 1 );
+   if (users.length === 0) return;
+
+   state.currentPage += 1;
+   state.users = users;
+
 }
 
-export const loadPreviousPage = async() => {
+const loadPreviousPage = async() => {
     throw new Error('Not implemented yet')
 }
 
-const onUserChanged = (user) => {
+ const onUserChanged = (user) => {
     throw new Error('Not implemented yet')
 }
 
@@ -30,6 +35,6 @@ export default{
     onUserChanged,
     reloadPage,
 
-    getUser: () => [...state.users],
+    getUsers: () => [...state.users],
     getCurrentPage: () => state.currentPage
 }
