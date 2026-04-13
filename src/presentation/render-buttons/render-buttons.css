@@ -1,0 +1,10 @@
+button {
+    margin: 10px;
+    cursor: pointer;
+}
+
+#current-page{
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}

@@ -10,11 +10,12 @@ const createTable = () => {
 
     tableHeaders.innerHTML = `
         <tr>
-            <th>"id"</th>
+            <th>Id</th>
             <th>Balance</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Active</th>
+            <th>Actions</th>
         </tr>
     `;
 
@@ -48,8 +49,7 @@ export const RenderTable = (element) => {
             <td>${user.lastName}</td>  
             <td>${user.isActive}</td> 
             <td>
-               <a href="#" data-id="${user.id}" class="edit">Edit</a>
-               |
+               <a href="#" data-id="${user.id}" class="edit">Edit</a>               
                <a href="#" data-id="${user.id}" class="delete">Delete</a>
             </td>
         <tr>   
