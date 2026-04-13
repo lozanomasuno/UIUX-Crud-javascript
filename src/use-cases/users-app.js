@@ -1,8 +1,8 @@
 import usersStore from '../store/users-store'
 import { RenderTable } from '../presentation/render-table/render-table'
 import { RenderButtons } from '../presentation/render-buttons/render-buttons'
-import { renderAddButton } from '../presentation/render-add-button/render-add-button'
-
+import { RenderAddButton } from '../presentation/render-add-button/render-add-button'
+import { RenderModal } from '../presentation/render-modal/render.modal'
 /**
  * @param {HTMLDivElement} element
  */
@@ -15,5 +15,6 @@ export const UsersApp = async(element) => {
 
     RenderTable(element);
     RenderButtons(element);
-    renderAddButton(element);
+    RenderAddButton(element);
+    RenderModal(element);
 }
