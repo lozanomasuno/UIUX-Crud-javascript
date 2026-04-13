@@ -26,8 +26,5 @@ export const loadUsersByPage = async(page = 1) => {
 
     const users  = list.map( userLike => localHostToUserModel(userLike))
 
-    console.log ( users)
-
-
     return users;
 }
