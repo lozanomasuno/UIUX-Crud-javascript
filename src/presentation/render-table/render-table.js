@@ -14,7 +14,7 @@ const createTable = () => {
             <th>Balance</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Active</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
     `;
@@ -41,16 +41,17 @@ export const RenderTable = (element) => {
 
   let TableHTML = ""
   users.forEach( user => {
+    const statusClass = user.isActive ? 'status-dot--active' : 'status-dot--inactive';
     TableHTML += `
         <tr>
             <td>${user.id}</td>
             <td>${user.balance}</td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>  
-            <td>${user.isActive}</td> 
+            <td><span class="status-dot ${statusClass}" title="${user.isActive ? 'Active' : 'Inactive'}"></span></td> 
             <td>
-               <a href="#" data-id="${user.id}" class="edit">Edit</a>               
-               <a href="#" data-id="${user.id}" class="delete">Delete</a>
+               <a href="#" data-id="${user.id}" class="btn-action btn-edit" title="Edit">&#9998;</a>               
+               <a href="#" data-id="${user.id}" class="btn-action btn-delete" title="Delete">&#10005;</a>
             </td>
         <tr>   
         `     

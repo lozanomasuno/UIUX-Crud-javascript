@@ -74,10 +74,73 @@ td {
 	vertical-align: middle;
 	color: var(--table-text);
 }
-
+th:nth-child(6),
+td:nth-child(6){
+	text-align: center;
+}
+td:nth-child(5) {
+	text-align: center;
+    width: 10%;
+}	
 td:last-child {
 	color: var(--table-text-muted);
 	white-space: nowrap;
+}
+
+/* Status dot */
+.status-dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.status-dot--active {
+	background-color: #4caf50;
+	box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.18);
+}
+
+.status-dot--inactive {
+	background-color: #b0b0b0;
+	box-shadow: 0 0 0 3px rgba(150, 150, 150, 0.12);
+}
+
+/* Action buttons */
+.btn-action {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 7px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+	font-size: 0.95rem;
+	line-height: 1;
+}
+
+.btn-edit {
+	background: rgba(59, 130, 246, 0.08);
+	color: #3b82f6;
+}
+
+.btn-edit:hover {
+	background: rgba(59, 130, 246, 0.18);
+	transform: scale(1.12);
+}
+
+.btn-delete {
+	background: rgba(130, 130, 130, 0.07);
+	color: #aaaaaa;
+	margin-left: 6px;
+}
+
+.btn-delete:hover {
+	background: rgba(220, 50, 50, 0.1);
+	color: #e53935;
+	transform: scale(1.12);
 }
 
 th:first-child {

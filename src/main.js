@@ -4,7 +4,7 @@ import {UsersApp} from './use-cases/users-app'
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <h1> This is a js C R U D </h1>
+    <h1> This is a JS C R U D </h1>
     <div class="card">
     </div>
   </div>
