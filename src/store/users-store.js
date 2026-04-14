@@ -12,8 +12,6 @@ const loadNextPage = async() => {
 
    state.currentPage += 1;
    state.users = users;
-   
-
 }
 
 const loadPreviousPage = async() => {     
@@ -30,7 +28,7 @@ const loadPreviousPage = async() => {
 const onUserChanged = (updatedUser) => {
 
     let wasFound = false;
-    
+
     state.users = state.users.map( user => {
         if (user.id === updatedUser.id) {
             wasFound = true;
@@ -45,7 +43,11 @@ const onUserChanged = (updatedUser) => {
 }
 
 const reloadPage = async() => {
-    throw new Error('Not implemented yet')
+   const users = await loadUsersByPage( state.currentPage);
+   if (users.length === 0) {
+        await loadPreviousPage();
+   };
+   state.users = users;
 }
 
 
