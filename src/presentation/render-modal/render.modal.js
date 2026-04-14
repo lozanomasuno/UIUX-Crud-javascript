@@ -61,7 +61,7 @@ export const RenderModal = (element, callback) => {
             }
 
             if( key === 'isActive'){
-                userLike[key] = (value === 'on') ? true : false;
+                userLike[key] = value === 'on';
                 continue;
             }
 
@@ -69,9 +69,13 @@ export const RenderModal = (element, callback) => {
         }
 
 
-        await callback(userLike)
-        
-        hideModal();
+        try {
+            await callback(userLike)
+            hideModal();
+        } catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            alert(message);
+        }
 
     });
 
