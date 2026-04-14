@@ -52,16 +52,14 @@ export const RenderModal = (element, callback) => {
         event.preventDefault();
         
         const formData = new FormData(form);
-        const userLike = {...loadedUser}
+        const userLike = {
+            ...loadedUser,
+            isActive: form.querySelector('[name="isActive"]').checked,
+        };
 
         for(const [key, value] of formData){
             if (key === 'balance'){
                 userLike[key] = +value;
-                continue;
-            }
-
-            if( key === 'isActive'){
-                userLike[key] = value === 'on';
                 continue;
             }
 
