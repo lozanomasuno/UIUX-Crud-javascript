@@ -12,8 +12,7 @@ const loadNextPage = async() => {
 
    state.currentPage += 1;
    state.users = users;
-
-   console.log(state.currentPage, users.length)
+   
 
 }
 
